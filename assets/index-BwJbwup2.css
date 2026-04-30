@@ -2,3 +2,30 @@
 
 body { color: #d1d1d1 !important; line-height: 1.6 !important; }
 p, .archive-entry, .story-content { color: #d1d1d1 !important; line-height: 1.6 !important; }
+
+/* Final Typography Polish for Mobile Legibility */
+body, p, .archive-entry, .story-content { 
+    color: #e0e0e0 !important; 
+    font-size: 18px !important; 
+    line-height: 1.6 !important; 
+}
+
+/* Dates */
+.date, time, [class*="date"] { 
+    font-size: 14px !important; 
+    text-transform: uppercase !important; 
+    letter-spacing: 1px !important; 
+    color: #e0e0e0 !important;
+}
+
+/* Story Titles */
+h2, .story-title, [class*="title"] { 
+    font-size: 24px !important; 
+    color: #e0e0e0 !important;
+}
+
+/* Meta info (Read time/arrows) */
+.meta, .read-time, [class*="meta"], .arrow, [class*="arrow"] { 
+    font-size: 13px !important; 
+    color: #e0e0e0 !important;
+}
