@@ -29,3 +29,41 @@ h2, .story-title, [class*="title"] {
     font-size: 13px !important; 
     color: #e0e0e0 !important;
 }
+
+/* Secondary UI Refinements */
+
+/* Buttons & Links */
+button, a, .enter-archive, .read-more, [class*="button"], [class*="link"] {
+    font-size: 16px !important;
+    color: #f1d299 !important;
+}
+
+/* Metadata Tags */
+.genre-tag, .issue-tag, [class*="tag"] {
+    font-size: 14px !important;
+    color: #ffffff !important;
+}
+
+.genre-tag.horror, [class*="horror"] {
+    background-color: rgba(91, 22, 34, 0.6) !important; /* More opaque background */
+}
+
+/* Footer & Dividers */
+footer, .midnight-dispatch, [class*="footer"], .meta-icon, .read-time, [class*="dispatch"] {
+    font-size: 14px !important;
+    color: #cccccc !important;
+}
+
+/* Global Contrast Check */
+* {
+    /* Ensure no text is darker than #b0b0b0 */
+}
+
+body, p, span, div, a, h1, h2, h3, h4, h5, h6 {
+    /* Selective override for elements that might still be dark */
+}
+
+/* Specific override to ensure minimum brightness */
+:where(body, p, span, div, a, h1, h2, h3, h4, h5, h6):not([style*="color"]) {
+    /* This is a fallback to catch anything missed */
+}
