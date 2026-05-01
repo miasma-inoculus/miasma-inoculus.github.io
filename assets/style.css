@@ -7,7 +7,6 @@
 
 body {
     background-color: var(--background-dark);
-    /* Ensure your background image is named bg-image.jpg in the assets folder */
     background-image: url('../assets/bg-image.jpg'); 
     background-size: cover;
     background-attachment: fixed;
@@ -16,12 +15,13 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
 }
 
+/* This creates the 'Issue' box look you lost */
 .container {
     width: 95%;
-    max-width: 650px;
+    max-width: 600px; 
     margin: 2rem auto;
 }
 
@@ -33,9 +33,14 @@ body {
     margin-bottom: 30px;
 }
 
-h1.font-ornate {
-    font-family: 'Cinzel', serif;
-    color: var(--bright-gold);
-    text-align: center;
-    letter-spacing: 4px;
+.read-link {
+    color: var(--gold-accent);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.read-link:hover {
+    border-bottom: 1px solid var(--gold-accent);
 }
