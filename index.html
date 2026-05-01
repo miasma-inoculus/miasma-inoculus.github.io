@@ -3,121 +3,97 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miasma Inoculus — Victorian Gothic Archive</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@700&display=swap" rel="stylesheet">
-
+    <title>Miasma Inoculus — Issue 01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@1,700&family=Lora&display=swap" rel="stylesheet">
     <style>
         body {
-            /* Using a high-quality external dark stone/parchment texture */
-            background: #050505 url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            background-color: #030204;
+            /* Mimics that dark, textured parchment look */
+            background-image: radial-gradient(circle, #0a0a0a 0%, #000 100%);
             color: #f5f5f5;
             font-family: 'Lora', serif;
-            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 0;
             min-height: 100vh;
         }
-
-        .container {
-            width: 90%;
-            max-width: 600px;
-            margin: 3rem auto;
-        }
-
-        /* This creates that 'Issue' frame from your screenshot */
+        .container { width: 90%; max-width: 500px; padding: 40px 0; }
+        
         .gold-frame {
-            border: 2px solid #d09945;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 10px rgba(208, 153, 69, 0.2);
+            border: 1px solid #d09945;
+            outline: 4px solid #030204; /* Creates that double-border look */
+            box-shadow: 0 0 0 2px #d09945, 0 10px 30px rgba(0,0,0,1);
+            padding: 40px;
+            background: rgba(5, 5, 5, 0.95);
             margin-bottom: 40px;
+            text-align: center;
             position: relative;
         }
 
-        h1.font-ornate {
-            font-family: 'Cinzel', serif;
-            color: #f9e1b6;
-            text-align: center;
-            letter-spacing: 5px;
-            font-size: clamp(24px, 6vw, 36px);
-            margin-bottom: 5px;
-        }
-
-        .sub-head {
-            text-align: center;
-            font-size: 12px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .story-title {
-            font-family: 'Playfair Display', serif;
-            color: #f9e1b6;
-            font-size: 28px;
-            margin: 15px 0;
-            font-style: italic;
+        /* Adds a subtle "Gold Glow" to the title */
+        h1 { 
+            font-family: 'Cinzel', serif; 
+            color: #f9e1b6; 
+            letter-spacing: 6px; 
+            margin: 0;
+            text-shadow: 0 0 10px rgba(249, 225, 182, 0.2);
         }
 
         .horror-tag {
             background: #961428;
-            color: white;
-            padding: 4px 10px;
-            font-weight: bold;
+            padding: 5px 12px;
             font-size: 11px;
-            letter-spacing: 1px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
-        .story-content {
-            font-size: 19px;
-            line-height: 1.8;
-            color: #e0e0e0;
-        }
+        h2 { font-family: 'Playfair Display', serif; font-style: italic; color: #f9e1b6; font-size: 32px; }
 
+        .story-content { font-size: 19px; line-height: 1.8; color: #ccc; margin: 25px 0; }
+
+        /* The Working Link Styles */
         .read-link {
             color: #d09945;
             text-decoration: none;
             font-weight: bold;
-            display: inline-block;
-            margin-top: 25px;
-            border-bottom: 1px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            border: 1px solid #d09945;
+            padding: 10px 20px;
+            transition: 0.3s ease;
         }
 
         .read-link:hover {
-            border-bottom: 1px solid #d09945;
+            background: #d09945;
+            color: #000;
         }
+
+        footer { color: #444; font-size: 10px; letter-spacing: 2px; margin-top: 20px; }
     </style>
 </head>
 
 <body>
     <div class="container">
         <header class="gold-frame">
-            <h1 class="font-ornate">MIASMA INOCULUS</h1>
-            <p class="sub-head">Vol. 1 • Est. 1887 • A New Tale Each Midnight</p>
+            <h1>MIASMA INOCULUS</h1>
+            <p style="color: #666; font-size: 11px; margin-top: 15px;">VOL. 1 • EST. 1887 • NIGHTLY DISPATCH</p>
         </header>
 
         <main>
             <article class="gold-frame">
-                <div style="margin-bottom: 15px;">
-                    <span class="horror-tag">HORROR</span>
-                    <span style="color: #888; margin-left: 10px; font-size: 13px;">APRIL 29, 1887</span>
-                </div>
+                <span class="horror-tag">HORROR</span>
+                <h2>The Thirteenth Knock</h2>
+                <p class="story-content">"She counted twelve knocks before she opened the door. There was no one there. Then the thirteenth came from inside."</p>
                 
-                <h2 class="story-title">The Thirteenth Knock</h2>
-                <p class="story-content">
-                    "She counted twelve knocks before she opened the door. There was no one there. Then the thirteenth came from inside."
-                </p>
-                
-                <a href="#" class="read-link">ENTER THE ARCHIVE →</a>
+                <a href="https://miasma-inoculus.github.io/archive" class="read-link">ENTER THE ARCHIVE →</a>
             </article>
         </main>
 
-        <footer style="text-align: center; color: #444; font-size: 11px; padding-bottom: 40px;">
-            © 1887 MIASMA INOCULUS ARCHIVE
-        </footer>
+        <footer>© 1887 MIASMA INOCULUS ARCHIVE</footer>
     </div>
 </body>
 </html>
