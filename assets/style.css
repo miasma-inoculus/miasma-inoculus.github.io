@@ -1,89 +1,61 @@
-/* * MIASMA INOCULUS - REFINED HORROR ARCHIVE
- * Optimized for High-Contrast Legibility
- */
-
 :root {
     --background-dark: #030204;
-    --bone-white: #f5f5f5; /* Brightened from #e0e0e0 */
-    --light-silver: #e0e0e0; /* Brightened for better visibility */
+    --bone-white: #f5f5f5;
     --gold-accent: #d09945;
-    --bright-gold: #f9e1b6; /* Softened but brightened for links */
-    --horror-red: #d9534f;
-    
-    --font-serif-main: 'Lora', Georgia, serif;
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-ornate: 'Cinzel', serif;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --bright-gold: #f9e1b6;
+    --horror-red: #961428;
 }
 
 body {
     background-color: var(--background-dark);
+    /* This brings back your background image */
+    background-image: url('../assets/bg-image.jpg'); 
+    background-size: cover;
+    background-attachment: fixed;
     color: var(--bone-white);
-    font-family: var(--font-serif-main);
-    font-size: 18px; /* Base size */
-    line-height: 1.7; /* Extra breathing room */
-    overflow-x: hidden;
+    font-family: 'Lora', serif;
+    line-height: 1.7;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything */
 }
 
-/* Story Titles */
-h2, .story-title, [class*="title"] {
-    font-size: 26px !important; /* Bumped up */
-    color: var(--bright-gold) !important;
-    margin-bottom: 0.75rem;
+/* The Main Container that creates the 'Frame' look */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin-top: 2rem;
 }
 
-/* Body Text */
-p, .archive-entry, .story-content {
-    font-size: 19px !important; /* Slightly larger for mobile */
-    color: var(--bone-white) !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+/* The Victorian Gold Border */
+.gold-frame {
+    border: 2px solid var(--gold-accent);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85); /* Semi-transparent black */
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
 }
 
-/* Dates & Small Meta */
-.date, time, .meta, .read-time, .midnight-dispatch {
-    font-size: 15px !important; /* Increased from 14px */
-    color: var(--light-silver) !important;
-    font-weight: 500;
+h1.font-ornate {
+    font-family: 'Cinzel', serif;
+    color: var(--bright-gold);
+    text-align: center;
+    letter-spacing: 3px;
 }
 
-/* UI Buttons & Navigation */
-button, a, .read-more, .enter-archive, [class*="link"] {
-    font-size: 17px !important;
-    font-weight: 600 !important;
-    color: var(--bright-gold) !important;
+.story-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--bright-gold);
+    font-size: 26px;
+    margin: 10px 0;
+}
+
+.genre-tag.horror {
+    background-color: var(--horror-red);
+    color: white;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid rgba(241, 210, 153, 0.3); /* Adds a subtle underline for clarity */
-    text-decoration: none;
-}
-
-/* Genre Tags (The "Horror" tag) */
-.genre-tag, .issue-tag, [class*="tag"] {
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    padding: 4px 10px !important;
-    background: rgba(208, 153, 69, 0.15) !important;
-    border: 1px solid var(--gold-accent) !important;
-}
-
-.genre-tag.horror, [class*="horror"] {
-    background-color: rgba(150, 20, 40, 0.8) !important; /* Much darker/vibrant red background */
-    color: #ffffff !important;
-    border-color: #ff4d4d !important;
-}
-
-/* Decorative Noise */
-body:before {
-    content: "";
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.2; /* Slightly reduced noise to clear up text */
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
 }
