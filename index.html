@@ -20,17 +20,21 @@
   <body>
 
 	<style>
-header, .top-header, .manus-nav {
+/* 1. This hides the gold Inkwell bar and the original background */
+header, .top-header, .manus-nav, .manus-background {
   display: none !important;
 }
 
+/* 2. This forces your custom logo artwork to be the only background */
 body {
   background-image: url("./assets/background_with_logo.jpg") !important;
   background-size: cover !important;
   background-position: top center !important;
   background-attachment: fixed !important;
+  background-color: #000 !important;
 }
 </style>
+
   
 
 <div id="root" style="padding-top: 450px;"></div> 
