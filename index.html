@@ -10,31 +10,7 @@
     <meta property="og:type" content="website" />
 
     <!-- Victorian Gothic Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-cBqRCTDL.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/style.css">
-  <link rel="canonical" href="https://inkwellgoth-vlqtr2hh.manus.space/" /></head>
-	
-  <body>
-
-	<style>
-/* 1. This hides the gold Inkwell bar and the original background */
-header, .top-header, .manus-nav, .manus-background {
-  display: none !important;
-}
-
-/* 2. This forces your custom logo artwork to be the only background */
-body {
-  background-image: url("./assets/background_with_logo.jpg") !important;
-  background-size: cover !important;
-  background-position: top center !important;
-  background-attachment: fixed !important;
-  background-color: #000 !important;
-}
-</style>
-
+    <link rel="preconnect" 
   
 
 <div id="root" style="padding-top: 450px;"></div> 
@@ -43,7 +19,31 @@ body {
 (function(){"use strict";var Mr={exports:{}},Kn={};/**
  * @license React
  * react-jsx-runtime.production.js
- *
+ *<style>
+  /* 1. THE NUCLEAR OVERRIDE */
+  html, body, #root, .manus-background {
+    background-color: #000 !important;
+    background-image: url("./assets/background_with_logo.jpg") !important;
+    background-size: cover !important;
+    background-position: top center !important;
+    background-attachment: fixed !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* 2. HIDE THE TEMPLATE CLUTTER */
+  header, .top-header, .manus-nav, [class*="overlay"], .gold-bar {
+    display: none !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+
+  /* 3. MOVE CONTENT DOWN TO SHOW LOGO */
+  #root {
+    padding-top: 350px !important; 
+  }
+</style>
+
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
