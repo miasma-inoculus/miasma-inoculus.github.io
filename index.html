@@ -3,80 +3,149 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miasma Inoculus — Issue 01</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@1,700&family=Lora&display=swap" rel="stylesheet">
+    <title>Miasma Inoculus — Nightly Dispatches</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@1,700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
     <style>
+        /* BASE THEME */
         body {
             background-color: #030204;
-            background-image: radial-gradient(circle, #0a0a0a 0%, #000 100%);
+            /* Subtle film grain texture */
+            background-image: radial-gradient(#111 1px, transparent 0);
+            background-size: 30px 30px;
             color: #f5f5f5;
             font-family: 'Lora', serif;
+            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0;
             min-height: 100vh;
         }
-        .container { width: 90%; max-width: 500px; padding: 40px 0; }
-        
+
+        .container {
+            width: 90%;
+            max-width: 550px;
+            padding: 50px 0;
+        }
+
+        /* THE VICTORIAN FRAME */
         .gold-frame {
             border: 1px solid #d09945;
             outline: 4px solid #030204;
-            box-shadow: 0 0 0 2px #d09945, 0 10px 30px rgba(0,0,0,1);
-            padding: 40px;
-            background: rgba(5, 5, 5, 0.95);
-            margin-bottom: 40px;
+            box-shadow: 0 0 0 2px #d09945, 0 20px 50px rgba(0,0,0,1);
+            padding: 40px 30px;
+            background: rgba(5, 5, 5, 0.98);
+            margin-bottom: 50px;
             text-align: center;
         }
 
-        h1 { font-family: 'Cinzel', serif; color: #f9e1b6; letter-spacing: 6px; margin: 0; }
-        .horror-tag { background: #961428; padding: 5px 12px; font-size: 11px; font-weight: bold; letter-spacing: 2px; display: inline-block; margin-bottom: 20px; }
-        h2, h3 { font-family: 'Playfair Display', serif; font-style: italic; color: #f9e1b6; }
-        h2 { font-size: 32px; }
-        h3 { font-size: 24px; }
-        .story-content { font-size: 18px; line-height: 1.8; color: #ccc; margin: 20px 0; text-align: left; }
-        
-        .meta-info { color: #666; font-size: 11px; letter-spacing: 1px; margin-top: 10px; display: block; }
-        
-        .read-link {
+        /* TYPOGRAPHY */
+        h1 { 
+            font-family: 'Cinzel', serif; 
+            color: #f9e1b6; 
+            letter-spacing: 5px; 
+            margin: 0; 
+            font-size: 2.2rem;
+            text-shadow: 0 0 15px rgba(249, 225, 182, 0.2);
+        }
+
+        .sub-head {
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .horror-tag {
+            background: #961428;
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        h2, h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            color: #f9e1b6; 
+            line-height: 1.2;
+        }
+
+        .story-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccc;
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        /* BUTTONS & LINKS */
+        .btn-gold {
             color: #d09945;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 12px;
-            border-bottom: 1px solid transparent;
-            transition: 0.3s;
+            border: 1px solid #d09945;
+            padding: 12px 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
-        .read-link:hover { border-bottom: 1px solid #d09945; }
-        footer { color: #444; font-size: 10px; letter-spacing: 2px; margin-top: 20px; }
+
+        .btn-gold:hover {
+            background: #d09945;
+            color: #000;
+            box-shadow: 0 0 15px rgba(208, 153, 69, 0.4);
+        }
+
+        footer {
+            color: #444;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+
+        /* Responsive Fix for Mobile Screens */
+        @media (max-width: 480px) {
+            .gold-frame { padding: 25px 20px; }
+            h1 { font-size: 1.6rem; }
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+        
         <header class="gold-frame">
             <h1>MIASMA INOCULUS</h1>
-            <p style="color: #666; font-size: 11px; margin-top: 15px;">VOL. 1 • EST. 1887 • NIGHTLY DISPATCH</p>
+            <p class="sub-head">Vol. 1 • Est. 1887 • Nightly Dispatch</p>
         </header>
 
         <main>
             <article class="gold-frame">
                 <span class="horror-tag">HORROR</span>
-                <span class="meta-info">APRIL 29, 1887</span>
+                <p style="color: #888; font-size: 12px;">APRIL 30, 1887</p>
                 <h2>The Thirteenth Knock</h2>
-                <p class="story-content">"She had always been meticulous about locks. Every evening, Mrs. Hartwell would make her rounds—the parlour door, the cellar hatch, the servants' entrance, and finally the great oak door at the front of the house."</p>
-                <a href="#" class="read-link">Continue reading...</a>
+                <p class="story-text">
+                    "She had always been meticulous about locks. Every evening, Mrs. Hartwell would make her rounds—the parlour door, the cellar hatch, and finally the great oak door at the front of the house."
+                </p>
+                <a href="https://miasma-inoculus.github.io/archive" class="btn-gold">Read Full Story →</a>
             </article>
 
             <article class="gold-frame">
-                <span class="meta-info">APRIL 28, 1887</span>
-                <h3>The Last Passenger</h3>
-                <p class="story-content">The conductor had counted the passengers at every stop. At Victoria Station, he counted one more than had boarded.</p>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-                    <span style="font-size: 10px; color: #666;">2 MIN READ</span>
-                    <a href="#" class="read-link">READ →</a>
-                </div>
+                <p style="color: #888; font-size: 12px;">APRIL 29, 1887</p>
+                <h3 style="font-size: 26px;">The Last Passenger</h3>
+                <p class="story-text">
+                    The conductor had counted the passengers at every stop. At Victoria Station, he counted one more than had boarded.
+                </p>
+                <a href="https://miasma-inoculus.github.io/archive" class="btn-gold">Enter the Archive</a>
             </article>
         </main>
 
