@@ -20,27 +20,44 @@
     
     <link rel="canonical" href="https://miasma-inoculus.github.io/" />
   </head>
-  <body>
-    <!-- Main Application Container -->
-    <div id="root"></div>
-    
-    <script>
-      // Rename Fallback: Ensures "The Inkwell" becomes "Miasma Inoculus" in dynamic content
-      window.addEventListener('DOMContentLoaded', () => {
-        const renameText = () => {
-          document.querySelectorAll('*').forEach(el => {
-            if (el.children.length === 0 && el.textContent.includes('The Inkwell')) {
-              el.textContent = el.textContent.replace(/The Inkwell/g, 'Miasma Inoculus');
-            }
-          });
-        };
-        const observer = new MutationObserver(renameText);
-        observer.observe(document.body, { childList: true, subtree: true });
-        renameText();
-      });
-    </script>
-    
-    <!-- Analytics & Runtime Scripts -->
-    <script defer src="https://manus-analytics.com/umami" data-website-id="a292a6e8-b6d4-4336-bb59-de331b48b8bd"></script>
-  </body>
+  <body class="candle-flicker">
+    <header>
+        <div class="logo-container">
+            <h1 class="font-ornate">MIASMA INOCULUS</h1>
+            <p class="midnight-dispatch">Vol. 1 • Est. 1887 • A New Tale Each Midnight</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="featured-story gold-frame">
+            <span class="genre-tag horror">Horror</span>
+            <time class="date">April 29, 1887</time>
+            <h2 class="story-title">The Thirteenth Knock</h2>
+            <p class="story-content">
+                "She counted twelve knocks before she opened the door. There was no one there. Then the thirteenth came from inside."
+            </p>
+            <a href="#" class="read-more">ENTER THE ARCHIVE →</a>
+        </section>
+
+        <hr class="ornament-divider">
+
+        <h3 class="font-ornate" style="text-align: center; margin: 2rem 0;">Previous Dispatches</h3>
+        
+        <div class="story-grid">
+            <article class="story-card gold-frame">
+                <time class="date">April 28, 1887</time>
+                <h4 class="story-title">The Last Passenger</h4>
+                <p class="excerpt">The conductor had counted the passengers at every stop. At Victoria Station, he counted one more than had boarded.</p>
+                <div class="meta">
+                    <span class="read-time">2 MIN</span>
+                    <a href="#" class="read-link">READ →</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p class="meta">© 1887 Miasma Inoculus Archive</p>
+    </footer>
+</body>
 </html>
