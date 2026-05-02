@@ -6,11 +6,12 @@ import Subscribe from "./pages/Subscribe";
 import StoryPage from "./pages/StoryPage";
 import Navigation from "./components/ui/Navigation";
 import { ThemeProvider } from "./context/ThemeContext";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   return (
     <ThemeProvider>
-      <div className="flex min-h-screen">
+      <div className="flex min-h-screen bg-black">
         <Navigation />
         <main className="flex-1 lg:ml-56">
           <Switch>
@@ -26,6 +27,7 @@ function App() {
             </Route>
           </Switch>
         </main>
+        <Toaster />
       </div>
     </ThemeProvider>
   );
