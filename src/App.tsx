@@ -1,38 +1,33 @@
 import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { ThemeProvider } from "./context/ThemeContext";
-import NotFound from "@/pages/not-found";
-import Navigation from "./components/ui/Navigation";
 import Home from "./pages/Home";
 import Archive from "./pages/Archive";
+import About from "./pages/About";
+import Subscribe from "./pages/Subscribe";
 import StoryPage from "./pages/StoryPage";
-
-function Router() {
-  return (
-    <div className="flex min-h-screen bg-background">
-      <Navigation />
-      <main className="flex-1 lg:pl-56">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/archive" component={Archive} />
-          <Route path="/story/:id" component={StoryPage} />
-          <Route component={NotFound} />
-        </Switch>
-      </main>
-    </div>
-  );
-}
+import Navigation from "./components/ui/Navigation";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <Router />
-        <Toaster />
-      </ThemeProvider>
-    </QueryClientProvider>
+    <ThemeProvider>
+      <div className="flex min-h-screen">
+        <Navigation />
+        <main className="flex-1 lg:ml-56">
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/archive" component={Archive} />
+            <Route path="/about" component={About} />
+            <Route path="/subscribe" component={Subscribe} />
+            <Route path="/story/:id" component={StoryPage} />
+            <Route>
+              <div className="min-h-screen flex items-center justify-center text-gold/40 font-cinzel tracking-widest uppercase text-xs">
+                404 — The page has vanished into the mist
+              </div>
+            </Route>
+          </Switch>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 
