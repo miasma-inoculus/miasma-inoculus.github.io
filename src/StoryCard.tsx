@@ -1,119 +1,71 @@
-
 /*
  * THE INKWELL — Story Card Component
- * Design: Gaslight & Shadow — portrait-oriented cards like tarot/book covers
- * Gold border frame, hover glow, genre tags, Playfair Display titles
+ * Design: The Framed Specimen
+ * Features: Hover effects, genre-specific styling, entry animations
  */
 
-import { Link } from 'wouter';
-import { Clock } from 'lucide-react';
-import type { Story } from '@/lib/stories';
+import { Link } from "wouter";
+import { Clock, ChevronRight } from "lucide-react";
+import { cn } from "../lib/utils";
 
 interface StoryCardProps {
-  story: Story;
-  index?: number;
+  story: {
+    id: string;
+    title: string;
+    excerpt: string;
+    genre: string;
+    readTime: string;
+    issue: number;
+    date: string;
+  };
+  index: number;
 }
 
-export default function StoryCard({ story, index = 0 }: StoryCardProps) {
-  const delay = index * 0.1;
-
+export default function StoryCard({ story, index }: StoryCardProps) {
   return (
     <Link href={`/story/${story.id}`}>
-      <div
-        className="story-card gold-frame group cursor-pointer"
+      <div 
+        className={cn(
+          "group relative flex flex-col p-8 transition-all duration-700 cursor-pointer overflow-hidden",
+          "bg-black/20 border border-gold/10 hover:border-gold/30"
+        )}
         style={{
-          background: 'oklch(0.11 0.009 300)',
-          animationDelay: `${delay}s`,
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
+          animation: `reveal-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${index * 0.1}s`,
+          opacity: 0
         }}
       >
-        {/* Image */}
-        <div className="relative overflow-hidden" style={{ aspectRatio: '2/3', maxHeight: '280px' }}>
-          <img
-            src={story.imageUrl}
-            alt={story.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            style={{ filter: 'brightness(0.85) saturate(0.8)' }}
-          />
-          {/* Image overlay */}
-          <div className="absolute inset-0" style={{
-            background: 'linear-gradient(to bottom, transparent 40%, oklch(0.11 0.009 300) 100%)'
-          }} />
-          {/* Genre tag overlay */}
-          <div className="absolute top-4 left-4">
-            <span className={`genre-tag ${story.genre}`}>{story.genre}</span>
-          </div>
-          {/* Issue number */}
-          <div className="absolute top-4 right-4">
-            <span style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              fontWeight: 900,
-              fontSize: '1.8rem',
-              color: 'oklch(0.72 0.12 75 / 30%)',
-              lineHeight: 1,
-            }}>
-              {String(story.issue).padStart(2, '0')}
-            </span>
-          </div>
+        {/* Genre & Meta */}
+        <div className="flex items-center justify-between mb-6">
+          <span className={cn("genre-tag", story.genre)}>
+            {story.genre}
+          </span>
+          <span className="font-cinzel text-[0.55rem] tracking-widest text-gold/30">
+            No. {String(story.issue).padStart(2, '0')}
+          </span>
         </div>
 
-        {/* Content */}
-        <div className="p-6 flex flex-col flex-1">
-          {/* Date */}
-          <p className="cinzel-label mb-3" style={{ fontSize: '0.55rem' }}>
-            {story.date}
-          </p>
+        {/* Title */}
+        <h3 className="mb-4 text-xl font-playfair font-bold text-gold/80 leading-tight group-hover:text-gold transition-colors">
+          {story.title}
+        </h3>
 
-          {/* Title */}
-          <h3 className="mb-3 gold-shimmer-text" style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontWeight: 700,
-            fontSize: '1.2rem',
-            lineHeight: 1.3,
-            color: 'oklch(0.84 0.008 70)',
-          }}>
-            {story.title}
-          </h3>
+        {/* Excerpt */}
+        <p className="mb-8 font-lora italic text-sm text-gold/40 line-clamp-3 leading-relaxed">
+          "{story.excerpt}"
+        </p>
 
-          {/* Excerpt */}
-          <p className="flex-1 mb-4" style={{
-            fontFamily: "'Lora', Georgia, serif",
-            fontStyle: 'italic',
-            fontSize: '0.85rem',
-            lineHeight: 1.7,
-            color: 'oklch(0.55 0.01 70)',
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }}>
-            {story.excerpt}
-          </p>
-
-          {/* Meta footer */}
-          <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: 'oklch(0.72 0.12 75 / 10%)' }}>
-            <span className="flex items-center gap-1.5" style={{ color: 'oklch(0.45 0.01 70)' }}>
-              <Clock size={10} />
-              <span style={{ fontFamily: "'Cinzel', serif", fontSize: '0.55rem', letterSpacing: '0.1em' }}>
-                {story.readTime}
-              </span>
-            </span>
-            <span style={{
-              fontFamily: "'Cinzel', serif",
-              fontSize: '0.55rem',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: 'oklch(0.72 0.12 75 / 50%)',
-              transition: 'color 0.3s',
-            }}
-              className="group-hover:text-amber-400"
-            >
-              Read →
-            </span>
+        {/* Footer */}
+        <div className="mt-auto pt-6 border-t border-gold/5 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-gold/30">
+            <Clock size={12} />
+            <span className="font-cinzel text-[0.55rem] tracking-wider">{story.readTime}</span>
           </div>
+          <ChevronRight size={14} className="text-gold/20 group-hover:text-gold/60 group-hover:translate-x-1 transition-all" />
         </div>
+
+        {/* Subtle Background Glow */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"
+             style={{ background: 'radial-gradient(circle at center, oklch(0.72 0.12 75 / 5%) 0%, transparent 70%)' }} />
       </div>
     </Link>
   );
