@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
 import { Clock, BookOpen, ChevronRight, Flame } from 'lucide-react';
 import { featuredStory, archiveStories } from '../lib/stories';
-import StoryCard from '../components/StoryCard';
+import StoryCard from '../StoryCard';
 
 const HERO_BG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663614260208/VLQTr2HHpa65hSd5QHn4op/hero_bg-bcasSkbTNzqnzhRTR33VLS.webp';
 const ORNAMENT = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663614260208/VLQTr2HHpa65hSd5QHn4op/masthead_ornament-SWtKcceA7MVfXV4kpZboRD.webp';
