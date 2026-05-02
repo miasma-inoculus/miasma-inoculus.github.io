@@ -4,8 +4,8 @@ import Archive from "./pages/Archive";
 import About from "./pages/About";
 import Subscribe from "./pages/Subscribe";
 import StoryPage from "./pages/StoryPage";
-import Navigation from "./components/Navigation";
-import { ThemeProvider } from "./contexts/ThemeContext"; 
+import Navigation from "./components/ui/Navigation";
+import { ThemeProvider } from "./context/ThemeContext"; 
 
 function App() {
   return (
