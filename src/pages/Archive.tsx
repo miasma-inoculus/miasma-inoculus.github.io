@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Search, Calendar, Clock, ChevronRight } from 'lucide-react';
 import { Link } from 'wouter';
 import { allStories } from '../lib/stories';
-import StoryCard from '../components/StoryCard';
+import StoryCard from '../StoryCard';
 
 export default function Archive() {
   const [searchQuery, setSearchQuery] = useState('');
