@@ -13,50 +13,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css">
-
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js" data-presets="react"></script>
-
-</head>
+  </head>
   <body>
-  <div id="archive-portal" style="max-width: 800px; margin: 40px auto; padding: 20px; background: rgba(20, 20, 20, 0.8); border: 1px solid #c9a84c; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
-    
-    <h1 style="color: #c9a84c; text-align: center; font-family: 'Cinzel', serif; letter-spacing: 4px; margin-bottom: 10px;">MIASMA INOCULUS</h1>
-    <p style="color: #c9a84c; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; border-bottom: 1px solid #c9a84c; padding-bottom: 20px;">The Shadows are Waiting...</p>
     <div id="root"></div>
-
-
-    <div id="story-display" style="color: #d1d1d1; font-family: 'Lora', serif; line-height: 1.8; margin-top: 30px;">
-      <h2 style="color: #c9a84c; font-family: 'Cinzel', serif;">Entry I: The Inkwell</h2>
-      <p>Your story text from stories.ts can be pasted right here...</p>
-    </div>
-
-    <div style="text-align: center; margin-top: 40px;">
-       <a href="https://yoursubstacklink.substack.com" style="color: #c9a84c; text-decoration: none; border: 1px solid #c9a84c; padding: 10px 20px; font-family: 'Cinzel', serif;">Visit the Full Archive</a>
-    </div>
-
-  </div>
-    <script type="text/babel">
-  const App = () => {
-    return (
-      <div style={{ padding: '20px', textAlign: 'left' }}>
-        <h2 style={{ color: '#c9a84c', fontFamily: 'Cinzel, serif' }}>THE THIRTEENTH KNOCK</h2>
-        <p style={{ fontStyle: 'italic', color: '#888' }}>April 29, 1887</p>
-        <p style={{ lineHeight: '1.8', color: '#d1d1d1' }}>
-          She had always been meticulous about locks. Every evening, Mrs. Hartwell would make her rounds—the parlour door, the cellar hatch, the servants' entrance, and finally the great oak door at the front of the house. Twelve locks. Twelve turns of the key.
-        </p>
-      </div>
-    );
-  };
-
-  const root = ReactDOM.createRoot(document.getElementById('root'));
-  root.render(<App />);
-</script>
-
-</body>
-
+    <script type="module" src="/src/main.tsx"></script>
+    <script
+      defer
+      src="%VITE_ANALYTICS_ENDPOINT%/umami"
+      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+  </body>
 </html>
-
-
