@@ -5,13 +5,12 @@ import About from "./pages/About";
 import Subscribe from "./pages/Subscribe";
 import StoryPage from "./pages/StoryPage";
 import Navigation from "./components/Navigation";
-// Re-importing the theme engine
-import { ThemeProvider } from "./context/ThemeContext"; 
+import { ThemeProvider } from "./contexts/ThemeContext"; 
 
 function App() {
   return (
     <ThemeProvider>
-      <div className="flex min-h-screen bg-background">
+      <div className="flex min-h-screen">
         <Navigation />
         <main className="flex-1 lg:ml-56">
           <Switch>
