@@ -1,20 +1,15 @@
-/*
- * THE INKWELL — App Router
- * Design: Gaslight & Shadow — dark theme, side navigation, all routes
- */
-
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
-import ErrorBoundary from "./components/ErrorBoundary";
+import { Toaster } from "./components/ui/sonner";
+import { TooltipProvider } from "./components/ui/tooltip";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { Route, Switch } from "wouter";
 import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
 import Archive from "./pages/Archive";
 import About from "./pages/About";
 import Subscribe from "./pages/Subscribe";
 import StoryPage from "./pages/StoryPage";
+import NotFound from "./pages/NotFound";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function Router() {
   return (
@@ -24,7 +19,6 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/subscribe" component={Subscribe} />
       <Route path="/story/:id" component={StoryPage} />
-      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -35,11 +29,9 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
-          <Toaster />
-          {/* Layout wrapper: side nav on desktop, top bar on mobile */}
-          <div className="flex min-h-screen" style={{ background: 'oklch(0.09 0.008 300)' }}>
+          <div className="flex min-h-screen bg-background">
+            <Toaster />
             <Navigation />
-            {/* Main content area — offset for desktop side nav */}
             <main className="flex-1 lg:ml-56 min-w-0">
               <Router />
             </main>
@@ -51,4 +43,3 @@ function App() {
 }
 
 export default App;
-
