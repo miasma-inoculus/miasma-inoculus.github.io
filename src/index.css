@@ -21,13 +21,12 @@
 
 @layer base {
   body {
-    /* This line tells the site to find your image and dim it down to match Manus */
+    /* MANUS LOGIC: This blends the dark tint and the image together */
     background: linear-gradient(rgba(13, 11, 14, 0.85), rgba(13, 11, 14, 0.85)), url('./assets/bg.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: var(--obsidian);
     
     color: var(--ash);
     font-family: 'Lora', Georgia, serif;
@@ -36,7 +35,7 @@
     min-height: 100vh;
   }
 
-  /* This adds that Victorian 'grain' but keeps it BEHIND your text */
+  /* GRAIN FIX: This moves the grain BEHIND your content */
   body::before {
     content: '';
     position: fixed;
