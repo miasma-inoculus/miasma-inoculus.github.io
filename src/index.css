@@ -1,121 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*
  * THE INKWELL — GASLIGHT & SHADOW
  * Design Philosophy: Symbolist Art Nouveau + Victorian Gothic Horror
- * Color: Obsidian (#0d0b0e), Aged Gold (#c9a84c), Burgundy (#6b1f2a), Pale Ash (#d4cfc8)
- * Typography: Playfair Display (titles), Lora (body), Cinzel (nav/labels)
- * Layout: Asymmetric, journal-like, portrait story cards
  */
 
-@import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Victorian Gothic Custom Tokens */
-  --color-obsidian: oklch(0.09 0.008 300);
-  --color-obsidian-light: oklch(0.13 0.008 300);
-  --color-obsidian-mid: oklch(0.17 0.01 300);
-  --color-gold: oklch(0.72 0.12 75);
-  --color-gold-dim: oklch(0.58 0.09 75);
-  --color-gold-glow: oklch(0.82 0.14 75);
-  --color-burgundy: oklch(0.32 0.1 15);
-  --color-burgundy-light: oklch(0.42 0.12 15);
-  --color-ash: oklch(0.84 0.008 70);
-  --color-ash-dim: oklch(0.65 0.01 70);
-  --color-fog: oklch(0.55 0.005 280);
-}
-
 :root {
+  /* Victorian Gothic Custom Tokens mapped to CSS variables */
+  --obsidian: #0d0b0e;
+  --gold: #c9a84c;
+  --burgundy: #6b1f2a;
+  --ash: #d4cfc8;
+  
+  --background: 280 8% 9%; /* obsidian */
+  --foreground: 70 8% 84%; /* ash */
+  --primary: 75 12% 72%;   /* gold */
   --radius: 0.25rem;
-  --background: oklch(0.09 0.008 300);
-  --foreground: oklch(0.84 0.008 70);
-  --card: oklch(0.12 0.009 300);
-  --card-foreground: oklch(0.84 0.008 70);
-  --popover: oklch(0.12 0.009 300);
-  --popover-foreground: oklch(0.84 0.008 70);
-  --primary: oklch(0.72 0.12 75);
-  --primary-foreground: oklch(0.09 0.008 300);
-  --secondary: oklch(0.17 0.01 300);
-  --secondary-foreground: oklch(0.84 0.008 70);
-  --muted: oklch(0.17 0.01 300);
-  --muted-foreground: oklch(0.55 0.01 70);
-  --accent: oklch(0.32 0.1 15);
-  --accent-foreground: oklch(0.84 0.008 70);
-  --destructive: oklch(0.42 0.12 15);
-  --destructive-foreground: oklch(0.84 0.008 70);
-  --border: oklch(0.72 0.12 75 / 20%);
-  --input: oklch(0.17 0.01 300);
-  --ring: oklch(0.72 0.12 75 / 50%);
-  --chart-1: oklch(0.72 0.12 75);
-  --chart-2: oklch(0.32 0.1 15);
-  --chart-3: oklch(0.42 0.12 15);
-  --chart-4: oklch(0.58 0.09 75);
-  --chart-5: oklch(0.82 0.14 75);
-  --sidebar: oklch(0.09 0.008 300);
-  --sidebar-foreground: oklch(0.84 0.008 70);
-  --sidebar-primary: oklch(0.72 0.12 75);
-  --sidebar-primary-foreground: oklch(0.09 0.008 300);
-  --sidebar-accent: oklch(0.17 0.01 300);
-  --sidebar-accent-foreground: oklch(0.84 0.008 70);
-  --sidebar-border: oklch(0.72 0.12 75 / 20%);
-  --sidebar-ring: oklch(0.72 0.12 75 / 50%);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--obsidian);
+    color: var(--ash);
     font-family: 'Lora', Georgia, serif;
-    background-color: oklch(0.09 0.008 300);
+    margin: 0;
     overflow-x: hidden;
   }
 
-  /* Subtle noise texture overlay on body */
+  /* Your noise texture overlay */
   body::before {
     content: '';
     position: fixed;
@@ -129,290 +43,49 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;
-    letter-spacing: -0.01em;
-  }
-
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  a[href],
-  select:not(:disabled) {
-    @apply cursor-pointer;
   }
 }
 
 @layer components {
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
-  @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1280px;
-    }
-  }
-
   /* Victorian Gothic Gold Border Frame */
   .gold-frame {
-    border: 1px solid oklch(0.72 0.12 75 / 40%);
-    box-shadow:
-      0 0 0 1px oklch(0.72 0.12 75 / 10%),
-      inset 0 0 0 1px oklch(0.72 0.12 75 / 10%),
-      0 4px 24px oklch(0 0 0 / 60%);
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
     position: relative;
-  }
-
-  .gold-frame::before,
-  .gold-frame::after {
-    content: '';
-    position: absolute;
-    border: 1px solid oklch(0.72 0.12 75 / 20%);
-    pointer-events: none;
   }
 
   .gold-frame::before {
-    inset: 4px;
-  }
-
-  .gold-frame::after {
-    inset: 8px;
-    border-color: oklch(0.72 0.12 75 / 10%);
-  }
-
-  /* Story Card hover glow */
-  .story-card {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .story-card::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse at 50% 100%,
-      oklch(0.72 0.12 75 / 15%) 0%,
-      transparent 70%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    inset: 4px;
+    border: 1px solid rgba(201, 168, 76, 0.2);
     pointer-events: none;
   }
 
-  .story-card:hover::after {
-    opacity: 1;
-  }
-
-  .story-card:hover {
-    border-color: oklch(0.72 0.12 75 / 70%) !important;
-    transform: translateY(-4px);
-    box-shadow:
-      0 0 30px oklch(0.72 0.12 75 / 15%),
-      0 20px 40px oklch(0 0 0 / 60%);
-  }
-
-  /* Drop cap for story text */
+  /* Your Drop cap for story text */
   .drop-cap::first-letter {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 4.5em;
-    font-weight: 900;
-    line-height: 0.75;
+    color: var(--gold);
     float: left;
     margin-right: 0.1em;
-    margin-top: 0.05em;
-    color: oklch(0.72 0.12 75);
-    text-shadow: 0 0 20px oklch(0.72 0.12 75 / 40%);
-  }
-
-  /* Ornamental divider */
-  .ornament-divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: oklch(0.72 0.12 75 / 60%);
-  }
-
-  .ornament-divider::before,
-  .ornament-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      oklch(0.72 0.12 75 / 40%),
-      transparent
-    );
-  }
-
-  /* Cinzel label style */
-  .cinzel-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: oklch(0.72 0.12 75 / 80%);
-  }
-
-  /* Genre tag */
-  .genre-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2em 0.7em;
-    border: 1px solid oklch(0.72 0.12 75 / 30%);
-    color: oklch(0.72 0.12 75 / 70%);
-    background: oklch(0.72 0.12 75 / 5%);
-  }
-
-  .genre-tag.horror {
-    border-color: oklch(0.42 0.12 15 / 50%);
-    color: oklch(0.62 0.12 15);
-    background: oklch(0.32 0.1 15 / 10%);
-  }
-
-  .genre-tag.thriller {
-    border-color: oklch(0.55 0.005 280 / 50%);
-    color: oklch(0.65 0.01 70);
-    background: oklch(0.55 0.005 280 / 10%);
-  }
-
-  .genre-tag.suspense {
-    border-color: oklch(0.58 0.09 75 / 50%);
-    color: oklch(0.72 0.12 75);
-    background: oklch(0.58 0.09 75 / 8%);
   }
 
   /* Candle flicker animation */
   @keyframes flicker {
     0%, 100% { opacity: 1; filter: brightness(1); }
-    25% { opacity: 0.95; filter: brightness(0.97); }
-    50% { opacity: 1; filter: brightness(1.03); }
-    75% { opacity: 0.97; filter: brightness(0.98); }
+    50% { opacity: 1; filter: brightness(1.05); }
   }
 
   .candle-flicker {
     animation: flicker 3s ease-in-out infinite;
   }
 
-  /* Fog drift animation */
-  @keyframes fog-drift {
-    0% { transform: translateX(-5%) translateY(0); opacity: 0.4; }
-    50% { transform: translateX(5%) translateY(-2%); opacity: 0.6; }
-    100% { transform: translateX(-5%) translateY(0); opacity: 0.4; }
-  }
-
-  .fog-layer {
-    animation: fog-drift 12s ease-in-out infinite;
-  }
-
-  .fog-layer-2 {
-    animation: fog-drift 18s ease-in-out infinite reverse;
-  }
-
-  /* Page reveal animation */
-  @keyframes reveal-from-dark {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal-up {
-    animation: reveal-from-dark 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  }
-
   /* Gold shimmer on hover */
-  @keyframes gold-shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
-
   .gold-shimmer-text {
-    background: linear-gradient(
-      90deg,
-      oklch(0.72 0.12 75) 0%,
-      oklch(0.82 0.14 75) 30%,
-      oklch(0.72 0.12 75) 60%,
-      oklch(0.58 0.09 75) 100%
-    );
+    background: linear-gradient(90deg, #c9a84c, #f1e4b8, #c9a84c);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
-
-  .gold-shimmer-text:hover {
-    animation: gold-shimmer 2s linear infinite;
-  }
-
-  /* Scrollbar styling */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: oklch(0.09 0.008 300);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: oklch(0.72 0.12 75 / 30%);
-    border-radius: 0;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.72 0.12 75 / 60%);
-  }
-
-  /* Text selection */
-  ::selection {
-    background: oklch(0.72 0.12 75 / 25%);
-    color: oklch(0.82 0.14 75);
-  }
-
-  /* Vignette overlay */
-  .vignette {
-    background: radial-gradient(
-      ellipse at center,
-      transparent 40%,
-      oklch(0 0 0 / 70%) 100%
-    );
-  }
-
-  /* Pulse glow for CTA */
-  @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 0 0 oklch(0.72 0.12 75 / 40%); }
-    50% { box-shadow: 0 0 0 8px oklch(0.72 0.12 75 / 0%); }
-  }
-
-  .pulse-gold {
-    animation: pulse-gold 2.5s ease-in-out infinite;
-  }
-
-  /* Stagger animation delays */
-  .stagger-1 { animation-delay: 0.1s; }
-  .stagger-2 { animation-delay: 0.2s; }
-  .stagger-3 { animation-delay: 0.3s; }
-  .stagger-4 { animation-delay: 0.4s; }
-  .stagger-5 { animation-delay: 0.5s; }
-  .stagger-6 { animation-delay: 0.6s; }
 }
