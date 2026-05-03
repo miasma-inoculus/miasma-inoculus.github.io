@@ -10,6 +10,7 @@ permissions:
   id-token: write
 
 env:
+  # This is the "on switch" the log asked for to stop the warnings
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -31,8 +32,8 @@ jobs:
         run: npm run build
 
       - name: Upload artifact
-        # FINALLY CORRECTED TO V4
-        uses: actions/upload-pages-artifact@v4
+        # Bumped to v5 to ensure it is well past the v3/v4 conflict
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
