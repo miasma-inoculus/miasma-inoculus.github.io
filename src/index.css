@@ -8,7 +8,7 @@
  */
 
 :root {
-  /* Victorian Gothic Custom Tokens */
+  /* Victorian Gothic Custom Tokens mapped to CSS variables */
   --obsidian: #0d0b0e;
   --gold: #c9a84c;
   --burgundy: #6b1f2a;
@@ -23,26 +23,13 @@
 @layer base {
   body {
     background-color: var(--obsidian);
-    /* THE MANUS STACK: 
-       1. Radial Gradient: Creates a vignette (darker edges)
-       2. Linear Gradient: A 65% black tint to mute the image brightness
-       3. The URL: Points to your bg.jpg file
-    */
-    background-image: 
-      radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%),
-      linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-      url('/assets/bg.jpg');
-    
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
     color: var(--ash);
     font-family: 'Lora', Georgia, serif;
     margin: 0;
     overflow-x: hidden;
   }
 
-  /* The Noise Texture Overlay */
+  /* Distressing Texture Overlay */
   body::before {
     content: '';
     position: fixed;
