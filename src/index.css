@@ -2,31 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
- * THE INKWELL — GASLIGHT & SHADOW
- * Original Standard Build
- */
-
 :root {
   --radius: 0.25rem;
   --obsidian: #0d0b0e;
   --gold: #c9a84c;
   --burgundy: #6b1f2a;
   --ash: #d4cfc8;
-
-  --background: 200 8% 9%;
-  --foreground: 30 15% 90%;
-  --primary: 35 12% 72%;
 }
 
 @layer base {
   body {
-    /* MANUS LOGIC: This blends the dark tint and the image together */
-    background: linear-gradient(rgba(13, 11, 14, 0.85), rgba(13, 11, 14, 0.85)), url('./assets/bg.jpg');
+    /* FIX: Using the direct path to the built asset folder */
+    background: linear-gradient(rgba(13, 11, 14, 0.8), rgba(13, 11, 14, 0.8)), url('assets/bg.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #0d0b0e; /* This is the 'obsidian' fallback */
     
     color: var(--ash);
     font-family: 'Lora', Georgia, serif;
@@ -35,7 +27,6 @@
     min-height: 100vh;
   }
 
-  /* GRAIN FIX: This moves the grain BEHIND your content */
   body::before {
     content: '';
     position: fixed;
@@ -43,7 +34,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: -1; 
-    opacity: 0.12; 
+    opacity: 0.15; 
   }
 
   h1, h2, h3, h4, h5, h6 {
