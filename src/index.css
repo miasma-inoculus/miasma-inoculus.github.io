@@ -4,7 +4,7 @@
 
 /*
  * THE INKWELL — GASLIGHT & SHADOW
- * Original Standard Build with GitHub Pages Image Fix
+ * Original Standard Build
  */
 
 :root {
@@ -21,7 +21,7 @@
 
 @layer base {
   body {
-    /* FIX: Added the dot before the slash so GitHub finds the file */
+    /* This line tells the site to find your image and dim it down to match Manus */
     background: linear-gradient(rgba(13, 11, 14, 0.85), rgba(13, 11, 14, 0.85)), url('./assets/bg.jpg');
     background-size: cover;
     background-attachment: fixed;
@@ -36,14 +36,13 @@
     min-height: 100vh;
   }
 
-  /* Standard Noise Filter - Subtle Texture */
+  /* This adds that Victorian 'grain' but keeps it BEHIND your text */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     pointer-events: none;
-    /* FIX: Changed z-index to -1 so the grain stays BEHIND the text */
     z-index: -1; 
     opacity: 0.12; 
   }
