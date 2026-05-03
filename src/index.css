@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /*
- * THE INKWELL — GASLIGHT & SHADOW
+ * THE INKWELL - GASLIGHT & SHADOW
  * Design Philosophy: Symbolist Art Nouveau + Victorian Gothic Horror
  */
 
@@ -12,17 +12,22 @@
   --obsidian: #0d0b0e;
   --gold: #c9a84c;
   --burgundy: #6b1f2a;
-  --ash: #d4cfc8;
-  
-  --background: 280 8% 9%; /* obsidian */
-  --foreground: 70 8% 84%; /* ash */
-  --primary: 75 12% 72%;   /* gold */
+  --ash: #e4efc8;
+
+  --background: 200 8% 9%; /* obsidian */
+  --foreground: 30 15% 90%; /* ash */
+  --primary: 35 12% 72%; /* gold */
   --radius: 0.25rem;
 }
 
 @layer base {
   body {
     background-color: var(--obsidian);
+    /* THE FIX: Adding the tint and image without losing your variables */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     color: var(--ash);
     font-family: 'Lora', Georgia, serif;
     margin: 0;
@@ -34,7 +39,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 9999;
     opacity: 0.35;
@@ -49,7 +54,7 @@
 @layer components {
   /* Victorian Gothic Gold Border Frame */
   .gold-frame {
-    border: 1px solid rgba(201, 168, 76, 0.4);
+    border: 1px solid rgba(201, 168, 76, 0.45);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
     position: relative;
   }
@@ -65,7 +70,7 @@
   /* Your Drop cap for story text */
   .drop-cap::first-letter {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 4.5em;
+    font-size: 4.5rem;
     color: var(--gold);
     float: left;
     margin-right: 0.1em;
