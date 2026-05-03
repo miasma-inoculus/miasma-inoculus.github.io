@@ -19,7 +19,7 @@ import NotFound from "./pages/NotFound";
 
 function Router() {
   return (
-    <div className="flex min-h-screen bg-transparent font-serif selection:bg-primary/20">
+    <div className="flex min-h-screen bg-background font-serif selection:bg-primary/20">
       <Navigation />
       <main className="flex-1 lg:pl-64">
         <Switch>
