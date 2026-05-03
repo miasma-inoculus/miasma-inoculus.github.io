@@ -9,8 +9,8 @@ permissions:
   pages: write
   id-token: write
 
-# This environment section addresses the specific "FORCE" warning in your screenshot
 env:
+  # This tells GitHub to use Node 24 for all steps
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -23,8 +23,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          
+          node-version: 24
 
       - name: Install dependencies
         run: npm install
@@ -33,6 +32,7 @@ jobs:
         run: npm run build
 
       - name: Upload artifact
+        # Moving to v3.0.1+ specifically helps clear the Node 20 warning
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
