@@ -1,4 +1,0 @@
- User-Agent: *
-Allow: /
-Disallow: /api/*
-Sitemap: https://inkwellgoth-vlqtr2hh.manus.space/sitemap.xml
