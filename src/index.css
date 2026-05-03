@@ -2,24 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * THE INKWELL — GASLIGHT & SHADOW
+ * Core Default Style
+ */
+
 :root {
   --radius: 0.25rem;
   --obsidian: #0d0b0e;
   --gold: #c9a84c;
   --burgundy: #6b1f2a;
   --ash: #d4cfc8;
+
+  --background: 200 8% 9%;
+  --foreground: 30 15% 90%;
+  --primary: 35 12% 72%;
 }
 
 @layer base {
   body {
-    /* LAYER 1, 2, & 3: Combined into one instruction so they stack correctly */
-    background: linear-gradient(rgba(13, 11, 14, 0.85), rgba(13, 11, 14, 0.85)), url('./assets/bg.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
     background-color: var(--obsidian);
-    
     color: var(--ash);
     font-family: 'Lora', Georgia, serif;
     margin: 0;
@@ -27,8 +29,8 @@
     min-height: 100vh;
   }
 
+  /* Grain/Noise Layer - Set to Default Back Position */
   body::before {
-    /* LAYER 4: The Grain. Moving it to -1 pushes it behind the text */
     content: '';
     position: fixed;
     inset: 0;
@@ -49,8 +51,7 @@
     border: 1px solid rgba(201, 168, 76, 0.4);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
     position: relative;
-    /* LAYER 5: Ensuring the frames stay at the very front */
-    z-index: 10;
+    z-index: 1;
   }
 
   .gold-frame::before {
