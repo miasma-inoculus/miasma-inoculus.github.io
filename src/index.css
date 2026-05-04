@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* Obsidian background with Ash text */
+    @apply bg-[#0d0b0e] text-[#d4cfc8] selection:bg-[#6b1f2a]/50;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* THE ANCHOR: This locks the background so it never moves or shifts */
+.miasma-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* Make sure your image is uploaded to public/assets/street-scene.webp later */
+  background-image: url('/assets/street-scene.webp');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.3) contrast(1.2);
+}
+
+/* The 'Glass' effect for our stories */
+.glass-panel {
+  @apply bg-[#0d0b0e]/80 backdrop-blur-md border border-[#c9a84c]/20;
+}
+
+/* Our unique branding fonts */
+.gold-text { 
+  color: #c9a84c; 
+  font-family: 'Cinzel', serif; 
+  letter-spacing: 0.1em;
+}
+
+.story-text { 
+  font-family: 'Lora', serif; 
+  line-height: 1.6;
+}
