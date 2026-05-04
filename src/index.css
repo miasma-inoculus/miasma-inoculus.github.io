@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap');
+
 :root {
   --gold: #c9a84c;
   --dark-bg: #0d0b0e;
@@ -11,50 +13,44 @@ body {
   margin: 0;
   background-color: var(--dark-bg);
   color: #d4cfc8;
+  font-family: 'Crimson Text', serif;
   overflow-x: hidden;
 }
 
-/* The "Miasma" Background Effect */
+/* THE BACKGROUND: Dark, muted, and fixed */
 .miasma-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(13, 11, 14, 0.8), rgba(13, 11, 14, 0.8)), 
-                    url('/street-scene.webp'); /* Use your actual image name */
+  /* Replace 'street-scene.jpg' with your actual background filename */
+  background: linear-gradient(rgba(13, 11, 14, 0.85), rgba(13, 11, 14, 0.85)), 
+              url('/street-scene.jpg'); 
   background-size: cover;
   background-position: center;
   z-index: -1;
-  filter: grayscale(40%) contrast(110%);
+  filter: sepia(20%) contrast(120%);
 }
 
 .gold-text {
   color: var(--gold);
-  text-shadow: 0 0 15px rgba(201, 168, 76, 0.3);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
 }
 
-/* This is what gives the "Manus" look */
+/* THE MANUS GLASS PANEL */
 .glass-panel {
-  background: rgba(13, 11, 14, 0.65);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(201, 168, 76, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  background: rgba(18, 16, 20, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .story-text {
-  font-family: 'Crimson Text', serif;
-  letter-spacing: 0.02em;
-}
-
-/* Custom Scrollbar to keep it sleek */
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 10px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  opacity: 0.85;
 }
