@@ -17,40 +17,40 @@ body {
   overflow-x: hidden;
 }
 
-/* THE BACKGROUND: Dark, muted, and fixed */
+/* THE BACKGROUND: Fixed, dark, and filtered */
 .miasma-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Replace 'street-scene.jpg' with your actual background filename */
+  /* Ensure this filename matches your actual file in the public folder */
   background: linear-gradient(rgba(13, 11, 14, 0.85), rgba(13, 11, 14, 0.85)), 
               url('/street-scene.jpg'); 
   background-size: cover;
   background-position: center;
   z-index: -1;
-  filter: sepia(20%) contrast(120%);
+  filter: sepia(15%) contrast(115%);
 }
 
 .gold-text {
   color: var(--gold);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+  text-shadow: 0 0 15px rgba(201, 168, 76, 0.2);
 }
 
-/* THE MANUS GLASS PANEL */
+/* THE FROSTED GLASS EFFECT */
 .glass-panel {
-  background: rgba(18, 16, 20, 0.7);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(201, 168, 76, 0.15);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  background: rgba(18, 16, 20, 0.6);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
 }
 
 .story-text {
   line-height: 1.8;
-  letter-spacing: 0.03em;
-  opacity: 0.85;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
 }
