@@ -82,7 +82,7 @@
             display: none;
             height: calc(100vh - var(--nav-height)); 
             overflow-y: auto;
-            padding: 25vh 5% 5vh 5%; /* Tightened bottom padding */
+            padding: 25vh 5% 10vh 5%; 
             animation: fadeInStory 1s ease-out forwards;
             scrollbar-width: none; 
         }
@@ -92,7 +92,6 @@
 
         @keyframes fadeInStory { from { opacity: 0; } to { opacity: 1; } }
 
-        /* THE UPDATED PANEL: Using flex to push the button down */
         .story-panel {
             background: var(--panel-glass);
             border: 1px solid var(--gold-border);
@@ -103,9 +102,6 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px); 
             box-shadow: 0 40px 80px rgba(0,0,0,0.8);
-            display: flex;
-            flex-direction: column;
-            min-height: 60vh; /* Ensures the panel is tall enough to hit the bottom area */
         }
 
         h1 {
@@ -144,10 +140,9 @@
             text-align: justify;
         }
 
-        /* THE PUSH: margin-top: auto pushes the link to the bottom */
         .read-more-link {
             display: block;
-            margin-top: auto; 
+            margin-top: 3rem;
             padding: 15px;
             border: 1px solid var(--gold-border);
             text-align: center;
@@ -230,7 +225,8 @@
     </main>
 
     <main id="story-knock" class="page">
-        <div class="story-panel" style="min-height: auto;"> <div class="meta-entry">Dispatch 001 // The Thirteenth Knock</div>
+        <div class="story-panel">
+            <div class="meta-entry">Dispatch 001 // The Thirteenth Knock</div>
             <h1>THE THIRTEENTH KNOCK</h1>
             
             <img src="knock.jpg" class="story-img" alt="The Thirteenth Knock">
@@ -246,7 +242,7 @@
     </main>
 
     <main id="index" class="page">
-        <div class="story-panel" style="min-height: auto;">
+        <div class="story-panel">
             <h1 style="margin-bottom: 40px; font-size: 2rem;">THE ARCHIVE INDEX</h1>
             <div class="archive-table">
                 <a class="archive-link" onclick="showPage('story-knock')">I. THE THIRTEENTH KNOCK</a>
@@ -258,7 +254,7 @@
     </main>
 
     <main id="fog" class="page">
-        <div class="story-panel" style="min-height: auto;">
+        <div class="story-panel">
             <h1>THE FOG</h1>
             <p>This repository is dedicated to horror fiction that lingers. We specialize in the atmospheric, the unsettling, and the things that breathe just outside the light.</p>
             <p>Every entry is a piece of a larger puzzle. Every story is a shield. This is the official archive for Miasma Inoculus.</p>
