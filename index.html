@@ -1,13 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miasma Inoculus</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-[#0d0b0e]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miasma Inoculus | Horror Fiction Archive</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --miasma-gold: #c9a84c;
+            --pure-black: #000000;
+            --bg-dark: #0d0b0e;
+            --text-off-white: #bcb8b1;
+            --panel-glass: rgba(13, 11, 14, 0.96); 
+            --gold-border: rgba(201, 168, 76, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-off-white);
+            font-family: 'Lora', serif;
+            overflow: hidden; 
+        }
+
+        /* ATMOSPHERIC BACKGROUND WITH SUBTLE MOVEMENT */
+        .fixed-miasma-bg {
+            position: fixed;
+            inset: -5%; 
+            background-image: url('street-scene.jpg'); 
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: subtleZoom 45s infinite alternate ease-in-out;
+        }
+
+        @keyframes subtleZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+        }
+
+        .fixed-miasma-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(13,11,14,0.1) 0%, rgba(13,11,14,1) 100%);
+        }
+
+        /* SOLID BLACK HEADER LAW */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: var(--pure-black);
+            border-bottom: 1px solid var(--gold-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-logo {
+            font-family: 'Cinzel', serif;
+            color: var(--miasma-gold);
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .nav-links { display: flex; gap: 25px; }
+
+        .nav-links a {
+            font-family: 'Cinzel', serif;
+            color: var(--miasma-gold);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover { opacity: 1; letter-spacing: 4px; color: #ffffff; }
+
+        /* SCROLLING CONTENT AREA */
+        .page {
+            display: none;
+            height: calc(100vh - 80px); 
+            overflow-y: auto;
+            padding: 40px 5%;
+            animation: fadeInStory 1.5s ease-out forwards;
+        }
+
+        .page.active { display: flex; flex-direction: column; align-items: center; }
+
+        @keyframes fadeInStory { from { opacity: 0; } to { opacity: 1; } }
+
+        /* THE STORY PANEL */
+        .story-panel {
+            background: var(--panel-glass);
+            border: 1px solid var(--gold-border);
+            padding: 4rem 2.5rem;
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.9);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--miasma-gold);
+            font-size: 2.4rem;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .meta-entry {
+            font-family: 'Cinzel', serif;
+            color: var(--miasma-gold);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            margin-bottom: 3rem;
+            opacity: 0.5;
+            text-align: center;
+        }
+
+        .story-img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--gold-border);
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 1.8rem;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .pull-quote {
+            font-style: italic;
+            color: var(--miasma-gold);
+            font-size: 1.3rem;
+            margin: 2rem 0 3rem 0;
+            display: block;
+            text-align: center;
+        }
+
+        /* ARCHIVE LIST */
+        .archive-table {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .archive-link {
+            padding: 20px;
+            border: 1px solid var(--gold-border);
+            background: rgba(201, 168, 76, 0.02);
+            text-decoration: none;
+            color: var(--miasma-gold);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            transition: 0.3s;
+            text-align: center;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .archive-link:hover { 
+            background: rgba(201, 168, 76, 0.08); 
+            border-color: var(--miasma-gold); 
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="fixed-miasma-bg"></div>
+
+    <nav>
+        <a onclick="showPage('latest')" class="brand-logo">MIASMA INOCULUS</a>
+        <div class="nav-links">
+            <a onclick="showPage('index')">The Index</a>
+            <a onclick="showPage('fog')">The Fog</a>
+        </div>
+    </nav>
+
+    <main id="latest" class="page active">
+        <div class="story-panel">
+            <div class="meta-entry">Dispatch 001 // The Thirteenth Knock</div>
+            <h1>THE THIRTEENTH KNOCK</h1>
+            
+            <img src="knock.jpg" class="story-img" alt="The Thirteenth Knock">
+
+            <span class="pull-quote">"The house didn't open. The house simply accepted."</span>
+            
+            <p>Elias Thorne lived by the rhythm of the rain and the iron-clad rules of the old manor. Twelve knocks meant the postman. Twelve knocks meant the neighbor. Twelve knocks was the boundary of the living world.</p>
+            
+            <p>But tonight, as the clock struck midnight and the fog pressed against the glass like a physical weight, the sequence didn't stop. After the twelfth echo died in the rafters, a final, heavy thud vibrated through the floorboards. The Thirteenth Knock.</p>
+            
+            <p>It wasn’t a sound of bone on wood; it was the sound of a debt being called. Elias didn't reach for the handle. He didn't have to. The door didn't open—the house simply accepted that whatever was outside was now, irrevocably, inside.</p>
+        </div>
+    </main>
+
+    <main id="index" class="page">
+        <h1 style="margin-bottom: 40px; font-size: 2rem;">THE ARCHIVE INDEX</h1>
+        <div class="archive-table">
+            <a class="archive-link" onclick="showPage('latest')">I. THE THIRTEENTH KNOCK</a>
+            <a class="archive-link">II. THE LAST PASSENGER (PENDING)</a>
+            <a class="archive-link">III. THE CARTOGRAPHER'S WIFE (PENDING)</a>
+            <a class="archive-link">IV. THE MIRROR AT THE END (PENDING)</a>
+            <a class="archive-link">V. THE GOVERNESS'S LETTER (PENDING)</a>
+            <a class="archive-link">VI. THE WATCHMAN'S HOUR (PENDING)</a>
+        </div>
+    </main>
+
+    <main id="fog" class="page">
+        <div class="story-panel">
+            <h1>THE FOG</h1>
+            <p>This repository is dedicated to horror fiction that lingers. We specialize in the atmospheric, the unsettling, and the things that breathe just outside the light.</p>
+            <p>Every entry is a piece of a larger puzzle. Every story is a shield. This is the official archive for Miasma Inoculus.</p>
+        </div>
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
 </html>
