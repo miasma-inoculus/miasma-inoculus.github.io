@@ -20,33 +20,37 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background-color: var(--bg-dark);
+            /* NEW LAW: Background is Solid Black */
+            background-color: var(--pure-black);
             color: var(--text-off-white);
             font-family: 'Lora', serif;
             overflow: hidden; 
         }
 
-        /* ATMOSPHERIC BACKGROUND WITH SUBTLE MOVEMENT */
+        /* ATMOSPHERIC BACKGROUND (Unaltered, Horizontal Image) */
         .fixed-miasma-bg {
             position: fixed;
-            inset: -5%; 
-            background-image: url('street-scene.jpg'); 
+            inset: 0; 
+            /* You are lifting this higher. Use top: -10vh (or more) to lift it. */
+            top: -10vh;
+            background-image: url('street-scene.jpg'); /* Use your original, unaltered JPG */
             background-size: cover;
             background-position: center;
             z-index: -1;
-            animation: subtleZoom 45s infinite alternate ease-in-out;
         }
 
-        @keyframes subtleZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.08); }
-        }
-
+        /* NEW LAW: Complex Fade to Black Gradient */
         .fixed-miasma-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle, rgba(13,11,14,0.1) 0%, rgba(13,11,14,1) 100%);
+            /* Linear gradient fades from 0% opacity (transparent) to 100% pure black at the bottom */
+            background: linear-gradient(
+                to bottom, 
+                rgba(0,0,0,0) 0%, 
+                rgba(0,0,0,0) 50%, /* Image is untouched for the top half */
+                rgba(0,0,0,1) 100% /* Smoothly fades into solid black */
+            );
         }
 
         /* SOLID BLACK HEADER LAW */
@@ -101,7 +105,7 @@
 
         @keyframes fadeInStory { from { opacity: 0; } to { opacity: 1; } }
 
-        /* THE STORY PANEL */
+        /* THE STORY PANEL (BOOK-LIKE) */
         .story-panel {
             background: var(--panel-glass);
             border: 1px solid var(--gold-border);
