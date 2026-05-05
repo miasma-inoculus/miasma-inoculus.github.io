@@ -13,7 +13,6 @@
             --pure-black: #000000;
             --bg-dark: #0d0b0e;
             --text-off-white: #bcb8b1;
-            /* NEW LAW: 50% transparency for the frosted glass look */
             --panel-glass: rgba(13, 11, 14, 0.5); 
             --gold-border: rgba(201, 168, 76, 0.2);
         }
@@ -27,7 +26,6 @@
             overflow: hidden; 
         }
 
-        /* BACKGROUND: Using your manual black-bordered image */
         .fixed-miasma-bg {
             position: fixed;
             inset: 0; 
@@ -37,7 +35,6 @@
             z-index: -1;
         }
 
-        /* NAVIGATION: Solid Black Header */
         nav {
             display: flex;
             justify-content: space-between;
@@ -76,12 +73,12 @@
 
         .nav-links a:hover { opacity: 1; letter-spacing: 4px; color: #ffffff; }
 
-        /* SCROLLING AREA */
         .page {
             display: none;
             height: calc(100vh - 80px); 
             overflow-y: auto;
-            padding: 50vh 5% 10vh 5%; 
+            /* NEW POSITION: 25vh pushes the book to the upper-third of the screen */
+            padding: 25vh 5% 10vh 5%; 
             animation: fadeInStory 1.5s ease-out forwards;
             scrollbar-width: none; 
         }
@@ -92,7 +89,6 @@
 
         @keyframes fadeInStory { from { opacity: 0; } to { opacity: 1; } }
 
-        /* THE STORY PANEL: Frosted Glass Book */
         .story-panel {
             background: var(--panel-glass);
             border: 1px solid var(--gold-border);
@@ -100,9 +96,8 @@
             max-width: 800px;
             width: 100%;
             margin: 0 auto; 
-            /* THE MAGIC: Blurs the image behind the panel */
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px); /* Safari support */
+            -webkit-backdrop-filter: blur(15px); 
             box-shadow: 0 40px 80px rgba(0,0,0,0.8);
         }
 
@@ -152,7 +147,6 @@
             text-align: center;
         }
 
-        /* ARCHIVE LIST */
         .archive-table {
             display: flex;
             flex-direction: column;
