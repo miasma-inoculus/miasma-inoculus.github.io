@@ -13,7 +13,7 @@
             --pure-black: #000000;
             --bg-dark: #0d0b0e;
             --text-off-white: #bcb8b1;
-            --panel-glass: rgba(13, 11, 14, 0.5); 
+            --panel-glass: rgba(13, 11, 14, 0.7); 
             --gold-border: rgba(201, 168, 76, 0.2);
             --nav-height: 50px; 
         }
@@ -84,34 +84,24 @@
             overflow-y: auto;
             padding: 20px 5% 10vh 5%; 
             animation: fadeInStory 1s ease-out forwards;
-            scrollbar-width: none; 
+            scrollbar-width: thin;
+            scrollbar-color: var(--miasma-gold) transparent;
         }
 
-        #latest {
-            padding-top: 35vh;
-        }
-        
-        .page::-webkit-scrollbar { display: none; }
+        #latest { padding-top: 35vh; }
         .page.active { display: block; }
-
         @keyframes fadeInStory { from { opacity: 0; } to { opacity: 1; } }
 
         .story-panel {
             background: var(--panel-glass);
             border: 1px solid var(--gold-border);
-            padding: 2.5rem 2rem;
-            max-width: 750px; 
+            padding: 3rem 2.5rem;
+            max-width: 850px; 
             width: 100%;
             margin: 0 auto; 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px); 
-            box-shadow: 0 40px 80px rgba(0,0,0,0.8);
-        }
-
-        #latest .story-panel {
-            display: flex;
-            flex-direction: column;
-            min-height: 40vh;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); 
+            box-shadow: 0 40px 80px rgba(0,0,0,0.9);
         }
 
         h1 {
@@ -120,15 +110,8 @@
             font-size: 1.8rem;
             letter-spacing: 5px;
             margin-bottom: 1rem;
-            font-weight: 400;
             text-transform: uppercase;
             text-align: center;
-        }
-
-        .story-panel h1 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            letter-spacing: 4px;
         }
 
         .meta-entry {
@@ -136,7 +119,7 @@
             color: var(--miasma-gold);
             font-size: 0.7rem;
             letter-spacing: 3px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             opacity: 0.8;
             text-align: center;
             border-bottom: 1px solid rgba(201, 168, 76, 0.1);
@@ -147,20 +130,28 @@
             width: 100%;
             height: auto;
             border: 1px solid var(--gold-border);
-            margin-bottom: 2rem;
-            opacity: 1;
+            margin: 2rem 0;
         }
 
         p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
-            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        .read-more-link {
+        .pull-quote {
+            font-style: italic;
+            color: var(--miasma-gold);
+            font-size: 1.4rem;
+            margin: 2.5rem 0;
             display: block;
-            margin-top: auto; 
+            text-align: center;
+            font-family: 'Cinzel', serif;
+        }
+
+        .read-more-link, .archive-link {
+            display: block;
             padding: 15px;
             border: 1px solid var(--gold-border);
             text-align: center;
@@ -171,51 +162,16 @@
             font-size: 0.8rem;
             transition: 0.4s;
             cursor: pointer;
+            background: rgba(201, 168, 76, 0.05);
         }
 
-        .read-more-link:hover {
-            background: rgba(201, 168, 76, 0.1);
+        .read-more-link:hover, .archive-link:hover {
+            background: rgba(201, 168, 76, 0.15);
             color: #ffffff;
             border-color: var(--miasma-gold);
         }
 
-        .pull-quote {
-            font-style: italic;
-            color: var(--miasma-gold);
-            font-size: 1.2rem;
-            margin: 2rem 0 3rem 0;
-            display: block;
-            text-align: center;
-        }
-
-        .archive-table {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .archive-link {
-            padding: 20px;
-            border: 1px solid var(--gold-border);
-            background: rgba(201, 168, 76, 0.02);
-            text-decoration: none;
-            color: var(--miasma-gold);
-            font-family: 'Cinzel', serif;
-            letter-spacing: 3px;
-            transition: 0.3s;
-            text-align: center;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-
-        .archive-link:hover { 
-            background: rgba(201, 168, 76, 0.08); 
-            border-color: var(--miasma-gold); 
-            color: #ffffff;
-        }
+        .archive-table { display: flex; flex-direction: column; gap: 15px; }
 
     </style>
 </head>
@@ -233,7 +189,7 @@
 
     <main id="latest" class="page active">
         <div class="story-panel">
-            <div class="meta-entry">Vol. I · Issue No. 1 · April 29, 1887</div>
+            <div class="meta-entry">Vol. I · Issue No. 1 · April 1887</div>
             <h1>THE THIRTEENTH KNOCK</h1>
             <p>Every evening, Mrs. Hartwell would make her rounds — the parlour door, the cellar hatch, the servants' entrance, and finally the great oak door...</p>
             <a onclick="showPage('story-knock')" class="read-more-link">Open the Door to Today's Story</a>
@@ -242,73 +198,80 @@
 
     <main id="story-knock" class="page">
         <div class="story-panel">
-            <div class="meta-entry">Vol. I · Issue No. 1 · April 29, 1887</div>
+            <div class="meta-entry">Vol. I · Issue No. 1</div>
             <h1>THE THIRTEENTH KNOCK</h1>
-            <img src="knock.jpg" class="story-img" alt="The Thirteenth Knock">
-            <p>She had always been meticulous about locks. Twelve turns of the key. On the night of the twenty-third, she heard the knocking...</p>
+            <img src="knock.jpg" class="story-img">
+            <p>She had always been meticulous about locks. Twelve turns of the key. A ritual as old as her tenure in the Ashford estate.</p>
+            <p>On the night of the twenty-third, she heard knocking. One. Two. Three. She set down her candle and listened. Four. Five. Six. The knocks were deliberate. Seven. Eight. Nine. Ten. Eleven. Twelve.</p>
+            <p>She opened the door. The fog lay thick across the moor. There was no carriage, no figure, no footprint in the frost. She was about to close the door when she heard it.</p>
             <span class="pull-quote">The thirteenth knock.</span>
-            <p>It came from inside the house.</p>
+            <p>It came from behind her. From inside the house. She turned slowly. The portraits of the Ashfords stared forward. All except one. The portrait of Edmund Ashford, dead these forty years, had turned its gaze toward the open cellar door.</p>
         </div>
     </main>
 
     <main id="story-passenger" class="page">
         <div class="story-panel">
-            <div class="meta-entry">Vol. I · Issue No. 2 · May 04, 1887</div>
+            <div class="meta-entry">Vol. I · Issue No. 2</div>
             <h1>THE LAST PASSENGER</h1>
-            <img src="last-passenger.jpg" class="story-img" alt="The Last Passenger">
-            <p>The collector moves through the cars, finding them all empty—save for a strange, lingering chill. In the very last car, he finds a man sitting perfectly still.</p>
-            <span class="pull-quote">A station that doesn't exist.</span>
-            <p>The ticket is cold to the touch. It isn't for a destination; it's dated forty years in the past—the date of a famous rail disaster on this very line.</p>
+            <img src="last-passenger.jpg" class="story-img">
+            <p>The Blackwood Line was notorious for fog that swallowed sound. Elias, the ticket collector, walked the length of the train. Every carriage was a ghost of velvet and mahogany.</p>
+            <p>In the final car sat a man in a formal suit that smelled of damp earth and coal soot. Elias reached out. "Ticket, please." The man didn't look up, but extended a pale hand holding a slip of card.</p>
+            <span class="pull-quote">A date from the disaster.</span>
+            <p>The ticket was dated 1847—the night the trestle gave way. Elias looked at the passenger's face, but there was only a smooth, featureless surface under the brim of the hat. Outside, the train didn't emerge from the tunnel. It just kept descending into the dark.</p>
         </div>
     </main>
 
     <main id="story-cartographer" class="page">
         <div class="story-panel">
-            <div class="meta-entry">Vol. I · Issue No. 3 · May 11, 1887</div>
+            <div class="meta-entry">Vol. I · Issue No. 3</div>
             <h1>THE CARTOGRAPHER'S WIFE</h1>
-            <img src="cartographers-wife.jpg" class="story-img" alt="The Cartographer's Wife">
-            <p>Elena notices that her husband isn't drawing land anymore; he is drawing her. But the anatomy is impossible—he’s sketching her with streets for veins and cathedrals for a heart.</p>
-            <span class="pull-quote">The borders are bleeding.</span>
-            <p>She opens the door to the "new room" and finds herself standing on a vast, empty cliffside overlooking the Uncharted Coast. She has been mapped into existence.</p>
+            <img src="cartographers-wife.jpg" class="story-img">
+            <p>Thomas Thorne mapped the Uncharted Coast, but the coast was mapping him back. Elena watched as his inkwells turned thick and dark, smelling not of iron gall, but of copper and salt.</p>
+            <p>He began to draw lines that didn't follow geography, but anatomy. "The borders are bleeding, Elena," he whispered. One night, he vanished. Elena found his last map on the desk.</p>
+            <span class="pull-quote">Mapped into existence.</span>
+            <p>The map showed their house, their room, and her—standing at the desk. As she touched the ink, her fingers felt like parchment. She looked out the window and saw only the white void of an unpainted page.</p>
         </div>
     </main>
 
     <main id="story-mirror" class="page">
         <div class="story-panel">
-            <div class="meta-entry">Vol. I · Issue No. 4 · May 18, 1887</div>
+            <div class="meta-entry">Vol. I · Issue No. 4</div>
             <h1>THE MIRROR AT THE END</h1>
-            <img src="mirror-at-the-end.jpg" class="story-img" alt="The Mirror at the End">
-            <p>The Silas in the mirror is now the one who is healthy and alive, stepping out into the bedroom. The real Silas is trapped behind the glass.</p>
-            <span class="pull-quote">Looking out at his own life.</span>
-            <p>He is frozen in the moment of his final breath, a spectator to a stranger living his life.</p>
+            <img src="mirror-at-the-end.jpg" class="story-img">
+            <p>Silas bought the silver-framed mirror because the reflection seemed to lag behind by a fraction of a second. It was a curiosity until the lag became a minute, then an hour.</p>
+            <p>He watched his reflection live a different life. While Silas grew grey and gaunt with dread, the Silas in the mirror remained young, vibrant, and smiling. One evening, the reflection reached out and touched the glass from the inside.</p>
+            <span class="pull-quote">The swap of souls.</span>
+            <p>Silas felt a sudden, crushing cold. He looked down at his hands and saw they were made of silvered glass. Outside the mirror, the young man adjusted his tie, blew out the candle, and walked out of the room, leaving Silas trapped in the dark of the hallway glass.</p>
         </div>
     </main>
 
     <main id="story-watchman" class="page">
         <div class="story-panel">
-            <div class="meta-entry">Vol. I · Issue No. 5 · May 25, 1887</div>
+            <div class="meta-entry">Vol. I · Issue No. 5</div>
             <h1>THE WATCHMAN'S HOUR</h1>
-            <img src="watchmans-hour.jpg" class="story-img" alt="The Watchman's Hour">
-            <p>Every time the clock strikes the hour, a room in the house changes. He realizes he isn't just watching a house—he’s watching the house age in reverse.</p>
-            <span class="pull-quote">The thirteenth hour strikes.</span>
-            <p>He is trapped in a loop of his own life, a young boy watching a man enter to begin the shift.</p>
+            <img src="watchmans-hour.jpg" class="story-img">
+            <p>Old Arthur knew the house had secrets, but he didn't know it was hungry. His task was simple: keep the clocks wound. If they stopped, the house stopped breathing.</p>
+            <p>But at midnight, the pendulum of the great hall clock swung twice as wide. The shadows on the wall stretched out like claws. Arthur felt the air grow heavy as the gears groaned.</p>
+            <span class="pull-quote">The phantom thirteenth chime.</span>
+            <p>When the clock struck thirteen, the hallway stretched into infinity. Arthur looked into the clock's face and saw his own childhood staring back. He realized he wasn't the watchman—he was the fuel. Every tick of the clock was a second of his life being consumed to keep the house standing.</p>
         </div>
     </main>
 
     <main id="story-governess" class="page">
         <div class="story-panel">
-            <div class="meta-entry">Vol. I · Issue No. 6 · June 01, 1887</div>
+            <div class="meta-entry">Vol. I · Issue No. 6</div>
             <h1>THE GOVERNESS' LETTER</h1>
-            <img src="governess-letter.jpg" class="story-img" alt="The Governess' Letter">
-            <p>As she reads the letter, she realizes it contains instructions on how to "prepare" the children for a visitor who is not human.</p>
-            <span class="pull-quote">Written by the children.</span>
-            <p>The letter wasn't for the previous governess—it was a detailed plan for her own replacement.</p>
+            <img src="governess-letter.jpg" class="story-img">
+            <p>The letter was sealed with black wax. Miss Penhaligon found it tucked into the vanity. It was a warning from the woman she replaced, but the handwriting was disturbingly familiar.</p>
+            <p>The children were too quiet. They sat in the nursery, playing with dolls that looked exactly like the staff. "The Master is coming," they whispered in unison. Miss Penhaligon opened the letter to find it was a script.</p>
+            <span class="pull-quote">Instructions for the new arrival.</span>
+            <p>She turned the page and saw her own death described in perfect, rhythmic prose. She looked up and saw the children standing in the doorway, holding the needle and thread mentioned in the letter's final paragraph.</p>
         </div>
     </main>
 
     <main id="index" class="page">
         <div class="story-panel">
-            <h1 style="margin-bottom: 40px; font-size: 1.8rem;">THE ARCHIVE INDEX</h1>
+            <h1>THE ARCHIVE INDEX</h1>
             <div class="archive-table">
                 <a class="archive-link" onclick="showPage('story-knock')">I. THE THIRTEENTH KNOCK</a>
                 <a class="archive-link" onclick="showPage('story-passenger')">II. THE LAST PASSENGER</a>
@@ -325,7 +288,7 @@
             <div class="meta-entry">Archive Manifesto</div>
             <h1>THE FOG</h1>
             <p>This repository is dedicated to horror fiction that lingers. We specialize in the atmospheric, the unsettling, and the things that breathe just outside the light.</p>
-            <p>Every entry is a piece of a larger puzzle. Every story is a shield. This is the official archive for Miasma Inoculus.</p>
+            <p>Every entry is a piece of a larger puzzle. This is the official archive for Miasma Inoculus.</p>
         </div>
     </main>
 
@@ -333,8 +296,11 @@
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            document.getElementById(pageId).scrollTop = 0;
+            const target = document.getElementById(pageId);
+            if(target) {
+                target.classList.add('active');
+                target.scrollTop = 0;
+            }
         }
     </script>
 
