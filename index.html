@@ -78,15 +78,17 @@
 
         .nav-links a:hover { opacity: 1; color: #ffffff; }
 
+        /* ALL PAGES: Updated from 0 to 20px to create that gap you wanted */
         .page {
             display: none;
             height: calc(100vh - var(--nav-height)); 
             overflow-y: auto;
-            padding: 0 5% 10vh 5%; 
+            padding: 20px 5% 10vh 5%; 
             animation: fadeInStory 1s ease-out forwards;
             scrollbar-width: none; 
         }
 
+        /* HOME PAGE EXCEPTION: Stays at 35vh to show the street background */
         #latest {
             padding-top: 35vh;
         }
@@ -99,7 +101,7 @@
         .story-panel {
             background: var(--panel-glass);
             border: 1px solid var(--gold-border);
-            border-top: none; 
+            /* border-top: none; <--- We remove this to keep the frame on all story pages */
             padding: 2.5rem 2rem;
             max-width: 750px; 
             width: 100%;
@@ -109,8 +111,11 @@
             box-shadow: 0 40px 80px rgba(0,0,0,0.8);
         }
 
+        /* HOME PAGE EXCEPTION: We need this to override potential flex issues and reset margins */
         #latest .story-panel {
-            border-top: 1px solid var(--gold-border);
+            display: flex;
+            flex-direction: column;
+            min-height: 40vh; /* Adjust this to control how close to the bottom it sits */
         }
 
         h1 {
@@ -122,6 +127,13 @@
             font-weight: 400;
             text-transform: uppercase;
             text-align: center;
+        }
+
+        /* THE LONG TITLE FIX: This keeps any h1 in a .story-panel that has a lot of text smaller and tight */
+        .story-panel h1 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 4px;
         }
 
         .meta-entry {
@@ -151,9 +163,10 @@
             text-align: justify;
         }
 
+        /* THE RESPONSIVE LINK FIX */
         .read-more-link {
             display: block;
-            margin-top: 1.5rem;
+            margin-top: auto; /* <--- Secret Sauce. Pushes the link to the very bottom of the flexible box */
             padding: 15px;
             border: 1px solid var(--gold-border);
             text-align: center;
@@ -228,7 +241,7 @@
         <div class="story-panel">
             <div class="meta-entry">Vol. I · Issue No. 1 · April 29, 1887</div>
             <h1>THE THIRTEENTH KNOCK</h1>
-            <p>Every evening, Mrs. Hartwell would make her rounds — the parlour door, the cellar hatch, the servants' entrance, and finally the great oak door...</p>
+            <p>Every evening, Mrs. Hartwell would make her rounds — the parlour door, the cellar hatch, the servants' entrance, and finally the great oak door at the front of the house. Twelve locks. Twelve turns of the key. But on the night of the twenty-third, the sequence didn't stop...</p>
             <a onclick="showPage('story-knock')" class="read-more-link">Open the Door to Today's Story</a>
         </div>
     </main>
