@@ -78,7 +78,6 @@
 
         .nav-links a:hover { opacity: 1; color: #ffffff; }
 
-        /* ALL PAGES: Now touch the header by default */
         .page {
             display: none;
             height: calc(100vh - var(--nav-height)); 
@@ -88,7 +87,6 @@
             scrollbar-width: none; 
         }
 
-        /* HOME PAGE ONLY: Stays at 35vh to show the street background */
         #latest {
             padding-top: 35vh;
         }
@@ -101,9 +99,9 @@
         .story-panel {
             background: var(--panel-glass);
             border: 1px solid var(--gold-border);
-            border-top: none; /* Touches the nav bar seamlessly */
+            border-top: none; 
             padding: 2.5rem 2rem;
-            max-width: 750px; /* Tightened width for better readability */
+            max-width: 750px; 
             width: 100%;
             margin: 0 auto; 
             backdrop-filter: blur(15px);
@@ -111,7 +109,6 @@
             box-shadow: 0 40px 80px rgba(0,0,0,0.8);
         }
 
-        /* Re-add top border for the home page teaser since it's floating */
         #latest .story-panel {
             border-top: 1px solid var(--gold-border);
         }
@@ -130,11 +127,13 @@
         .meta-entry {
             font-family: 'Cinzel', serif;
             color: var(--miasma-gold);
-            font-size: 0.75rem;
-            letter-spacing: 4px;
+            font-size: 0.7rem; /* Slightly smaller for that ledger feel */
+            letter-spacing: 3px;
             margin-bottom: 1.2rem;
-            opacity: 1;
+            opacity: 0.8;
             text-align: center;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1); /* Subtle divider */
+            padding-bottom: 10px;
         }
 
         .story-img {
@@ -227,7 +226,7 @@
 
     <main id="latest" class="page active">
         <div class="story-panel">
-            <div class="meta-entry">Current Dispatch // The Thirteenth Knock</div>
+            <div class="meta-entry">Vol. I · Issue No. 1 · April 29, 1887</div>
             <h1>THE THIRTEENTH KNOCK</h1>
             <p>Elias Thorne lived by the rhythm of the rain and the iron-clad rules of the old manor. Twelve knocks meant....</p>
             <a onclick="showPage('story-knock')" class="read-more-link">Open the Door to Today's Story</a>
@@ -236,7 +235,7 @@
 
     <main id="story-knock" class="page">
         <div class="story-panel">
-            <div class="meta-entry">Dispatch 001 // The Thirteenth Knock</div>
+            <div class="meta-entry">Vol. I · Issue No. 1 · April 29, 1887</div>
             <h1>THE THIRTEENTH KNOCK</h1>
             <img src="knock.jpg" class="story-img" alt="The Thirteenth Knock">
             <span class="pull-quote">"The house didn't open. The house simply accepted."</span>
@@ -260,6 +259,7 @@
 
     <main id="fog" class="page">
         <div class="story-panel">
+            <div class="meta-entry">Archive Manifesto</div>
             <h1>THE FOG</h1>
             <p>This repository is dedicated to horror fiction that lingers. We specialize in the atmospheric, the unsettling, and the things that breathe just outside the light.</p>
             <p>Every entry is a piece of a larger puzzle. Every story is a shield. This is the official archive for Miasma Inoculus.</p>
