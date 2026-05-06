@@ -78,7 +78,6 @@
 
         .nav-links a:hover { opacity: 1; color: #ffffff; }
 
-        /* ALL PAGES: Updated from 0 to 20px to create that gap you wanted */
         .page {
             display: none;
             height: calc(100vh - var(--nav-height)); 
@@ -88,7 +87,6 @@
             scrollbar-width: none; 
         }
 
-        /* HOME PAGE EXCEPTION: Stays at 35vh to show the street background */
         #latest {
             padding-top: 35vh;
         }
@@ -101,7 +99,6 @@
         .story-panel {
             background: var(--panel-glass);
             border: 1px solid var(--gold-border);
-            /* border-top: none; <--- We remove this to keep the frame on all story pages */
             padding: 2.5rem 2rem;
             max-width: 750px; 
             width: 100%;
@@ -111,11 +108,10 @@
             box-shadow: 0 40px 80px rgba(0,0,0,0.8);
         }
 
-        /* HOME PAGE EXCEPTION: We need this to override potential flex issues and reset margins */
         #latest .story-panel {
             display: flex;
             flex-direction: column;
-            min-height: 40vh; /* Adjust this to control how close to the bottom it sits */
+            min-height: 40vh;
         }
 
         h1 {
@@ -129,7 +125,6 @@
             text-align: center;
         }
 
-        /* THE LONG TITLE FIX: This keeps any h1 in a .story-panel that has a lot of text smaller and tight */
         .story-panel h1 {
             font-size: 1.3rem;
             margin-bottom: 0.8rem;
@@ -163,10 +158,9 @@
             text-align: justify;
         }
 
-        /* THE RESPONSIVE LINK FIX */
         .read-more-link {
             display: block;
-            margin-top: auto; /* <--- Secret Sauce. Pushes the link to the very bottom of the flexible box */
+            margin-top: auto; 
             padding: 15px;
             border: 1px solid var(--gold-border);
             text-align: center;
@@ -250,25 +244,65 @@
         <div class="story-panel">
             <div class="meta-entry">Vol. I · Issue No. 1 · April 29, 1887</div>
             <h1>THE THIRTEENTH KNOCK</h1>
-            
             <img src="knock.jpg" class="story-img" alt="The Thirteenth Knock">
-
-            <p>She had always been meticulous about locks.</p>
-            <p>Every evening, Mrs. Hartwell would make her rounds — the parlour door, the cellar hatch, the servants' entrance, and finally the great oak door at the front of the house. Twelve locks. Twelve turns of the key. She counted them aloud, a ritual as old as her tenure in the Ashford estate.</p>
-            <p>On the night of the twenty-third, she heard knocking.</p>
-            <p>One. Two. Three. She set down her candle and listened, certain it was the wind pressing against the shutters. Four. Five. Six. The knocks were deliberate, unhurried, as if the caller had all the time in the world. Seven. Eight. Nine. She rose from her chair, her joints protesting the cold. Ten. Eleven. Twelve.</p>
-            <p>She opened the door.</p>
-            <p>The fog lay thick across the moor. The gas lamp at the gate burned low, its light swallowed before it reached the path. There was no carriage, no figure, no footprint in the frost.</p>
-            <p>She was about to close the door when she heard it.</p>
-            
+            <p>She had always been meticulous about locks. Twelve turns of the key. On the night of the twenty-third, she heard the knocking...</p>
             <span class="pull-quote">The thirteenth knock.</span>
-            
-            <p>It came from behind her.</p>
-            <p>From inside the house.</p>
-            <p>She turned slowly, holding the candle before her like a ward against whatever waited in the dark. The hallway was empty. The portraits on the wall — the Ashfords going back six generations — stared forward with their painted eyes.</p>
-            <p>All except one.</p>
-            <p>The portrait of Edmund Ashford, dead these forty years, had turned its gaze toward the cellar door.</p>
-            <p>Mrs. Hartwell had not noticed, until that moment, that the cellar hatch was open.</p>
+            <p>It came from inside the house.</p>
+        </div>
+    </main>
+
+    <main id="story-passenger" class="page">
+        <div class="story-panel">
+            <div class="meta-entry">Vol. I · Issue No. 2 · May 04, 1887</div>
+            <h1>THE LAST PASSENGER</h1>
+            <img src="last-passenger.jpg" class="story-img" alt="The Last Passenger">
+            <p>The collector moves through the cars, finding them all empty—save for a strange, lingering chill. In the very last car, he finds a man sitting perfectly still.</p>
+            <span class="pull-quote">A station that doesn't exist.</span>
+            <p>The ticket is cold to the touch. It isn't for a destination; it's dated forty years in the past—the date of a famous rail disaster on this very line.</p>
+        </div>
+    </main>
+
+    <main id="story-cartographer" class="page">
+        <div class="story-panel">
+            <div class="meta-entry">Vol. I · Issue No. 3 · May 11, 1887</div>
+            <h1>THE CARTOGRAPHER'S WIFE</h1>
+            <img src="cartographers-wife.jpg" class="story-img" alt="The Cartographer's Wife">
+            <p>Elena notices that her husband isn't drawing land anymore; he is drawing her. But the anatomy is impossible—he’s sketching her with streets for veins and cathedrals for a heart.</p>
+            <span class="pull-quote">The borders are bleeding.</span>
+            <p>She opens the door to the "new room" and finds herself standing on a vast, empty cliffside overlooking the Uncharted Coast. She has been mapped into existence.</p>
+        </div>
+    </main>
+
+    <main id="story-mirror" class="page">
+        <div class="story-panel">
+            <div class="meta-entry">Vol. I · Issue No. 4 · May 18, 1887</div>
+            <h1>THE MIRROR AT THE END</h1>
+            <img src="mirror-at-the-end.jpg" class="story-img" alt="The Mirror at the End">
+            <p>The Silas in the mirror is now the one who is healthy and alive, stepping out into the bedroom. The real Silas is trapped behind the glass.</p>
+            <span class="pull-quote">Looking out at his own life.</span>
+            <p>He is frozen in the moment of his final breath, a spectator to a stranger living his life.</p>
+        </div>
+    </main>
+
+    <main id="story-watchman" class="page">
+        <div class="story-panel">
+            <div class="meta-entry">Vol. I · Issue No. 5 · May 25, 1887</div>
+            <h1>THE WATCHMAN'S HOUR</h1>
+            <img src="watchmans-hour.jpg" class="story-img" alt="The Watchman's Hour">
+            <p>Every time the clock strikes the hour, a room in the house changes. He realizes he isn't just watching a house—he’s watching the house age in reverse.</p>
+            <span class="pull-quote">The thirteenth hour strikes.</span>
+            <p>He is trapped in a loop of his own life, a young boy watching a man enter to begin the shift.</p>
+        </div>
+    </main>
+
+    <main id="story-governess" class="page">
+        <div class="story-panel">
+            <div class="meta-entry">Vol. I · Issue No. 6 · June 01, 1887</div>
+            <h1>THE GOVERNESS' LETTER</h1>
+            <img src="governess-letter.jpg" class="story-img" alt="The Governess' Letter">
+            <p>As she reads the letter, she realizes it contains instructions on how to "prepare" the children for a visitor who is not human.</p>
+            <span class="pull-quote">Written by the children.</span>
+            <p>The letter wasn't for the previous governess—it was a detailed plan for her own replacement.</p>
         </div>
     </main>
 
@@ -277,9 +311,11 @@
             <h1 style="margin-bottom: 40px; font-size: 1.8rem;">THE ARCHIVE INDEX</h1>
             <div class="archive-table">
                 <a class="archive-link" onclick="showPage('story-knock')">I. THE THIRTEENTH KNOCK</a>
-                <a class="archive-link">II. THE LAST PASSENGER (PENDING)</a>
-                <a class="archive-link">III. THE CARTOGRAPHER'S WIFE (PENDING)</a>
-                <a class="archive-link">IV. THE MIRROR AT THE END (PENDING)</a>
+                <a class="archive-link" onclick="showPage('story-passenger')">II. THE LAST PASSENGER</a>
+                <a class="archive-link" onclick="showPage('story-cartographer')">III. THE CARTOGRAPHER'S WIFE</a>
+                <a class="archive-link" onclick="showPage('story-mirror')">IV. THE MIRROR AT THE END</a>
+                <a class="archive-link" onclick="showPage('story-watchman')">V. THE WATCHMAN'S HOUR</a>
+                <a class="archive-link" onclick="showPage('story-governess')">VI. THE GOVERNESS' LETTER</a>
             </div>
         </div>
     </main>
